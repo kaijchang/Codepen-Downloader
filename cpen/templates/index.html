@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{target_directory}}</title>
+</head>
+<body>
+	{{html}}
+</body>
+
+{% for resource in resources %}
+	{% if resource['resource_type'] == 'js' %}
+<script src="{{resource['url']}}"></script>
+	{% elif resource['resource_type'] == 'css' %}
+<link rel="stylesheet" href="{{resource['url']}}">
+	{% endif %}
+{% endfor %}
+
+<link rel="stylesheet" href="main.css">
+<script src="main.js"></script>
+
+</html>
