@@ -42,11 +42,13 @@ def download_codepen(codepen_url, target_directory=None):
     with open(os.path.join(target_directory, 'index.html'), 'w') as index_html:
         index_html.write(index_html_template.render(**locals()))
 
-    with open(os.path.join(target_directory, 'main.css'), 'w') as main_css:
-        main_css.write(css)
+    if css.strip():
+        with open(os.path.join(target_directory, 'main.css'), 'w') as main_css:
+            main_css.write(css)
 
-    with open(os.path.join(target_directory, 'main.js'), 'w') as main_js:
-        main_js.write(js)
+    if js.strip():
+        with open(os.path.join(target_directory, 'main.js'), 'w') as main_js:
+            main_js.write(js)
 
 
 def main(args=sys.argv[1:]):
