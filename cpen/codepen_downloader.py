@@ -30,9 +30,9 @@ def download_codepen(codepen_url, target_directory=None):
 
     resources = json.loads(data['__item'])['resources']
 
-    html = codepen.find('pre', id='html').find('code').text
-    js = codepen.find('pre', id='js').find('code').text
-    css = codepen.find('pre', id='css').find('code').text
+    html = codepen.find('pre', id='html').find('code').text.strip()
+    js = codepen.find('pre', id='js').find('code').text.strip()
+    css = codepen.find('pre', id='css').find('code').text.strip()
 
     if os.path.exists(target_directory):
         shutil.rmtree(target_directory)
@@ -42,11 +42,11 @@ def download_codepen(codepen_url, target_directory=None):
     with open(os.path.join(target_directory, 'index.html'), 'w') as index_html:
         index_html.write(index_html_template.render(**locals()))
 
-    if css.strip():
+    if css:
         with open(os.path.join(target_directory, 'main.css'), 'w') as main_css:
             main_css.write(css)
 
-    if js.strip():
+    if js:
         with open(os.path.join(target_directory, 'main.js'), 'w') as main_js:
             main_js.write(js)
 
