@@ -7,20 +7,20 @@
 	{{html}}
 </body>
 
-{% for resource in resources %}
-{% if resource['resource_type'] == 'js' %}
+{%- for resource in resources %}
+{%- if resource['resource_type'] == 'js' %}
 <script src="{{resource['url']}}"></script>
-{% elif resource['resource_type'] == 'css' %}
+{%- elif resource['resource_type'] == 'css' %}
 <link rel="stylesheet" href="{{resource['url']}}">
-{% endif %}
-{% endfor %}
+{%- endif %}
+{%- endfor %}
 
-{% if css.strip() %}
+{%- if css.strip() %}
 <link rel="stylesheet" href="main.css">
-{% endif %}
+{%- endif %}
 
-{% if js.strip() %}
+{%- if js.strip() %}
 <script src="main.js"></script>
-{% endif %}
+{%- endif %}
 
 </html>
