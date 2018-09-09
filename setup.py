@@ -7,7 +7,7 @@ import os
 setup(
     name='cpen',
     packages=find_packages(),
-    version='0.1.0',
+    version='0.1.1',
     description='Hacky Downloader for Codepens',
     author='Kai Chang',
     author_email='kaijchang@gmail.com',
