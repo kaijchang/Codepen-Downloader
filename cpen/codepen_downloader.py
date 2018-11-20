@@ -37,7 +37,7 @@ def download_codepen(codepen_url, target_directory=None):
     if os.path.exists(target_directory):
         shutil.rmtree(target_directory)
 
-    os.mkdir(target_directory)
+    os.makedirs(target_directory)
 
     with open(os.path.join(target_directory, 'index.html'), 'w') as index_html:
         index_html.write(index_html_template.render(**locals()))
